@@ -29,7 +29,7 @@ public class controllerclass {
 	        "\n3.Display data by state with in Date Range"+"\n4.Display confirmed cases by Comparing two states for a given date range"+"\n5.exit");
 	
 	}
-	public static void main(String[] args) throws InvalidStateCodeException, InvalidDateException, InvalidDateRangeException, ParseException, DAOException, SQLException, NoDataFoundException  {
+	public static void main(String[] args) throws InvalidStateCodeException, InvalidDateException, InvalidDateRangeException, ParseException, SQLException, NoDataFoundException  {
 		ServiceClass obj1=new ServiceClass();
 		
 		boolean flag=true;
