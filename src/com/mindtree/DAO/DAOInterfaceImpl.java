@@ -21,10 +21,10 @@ public class DAOInterfaceImpl implements DAOInterface{
 	public ArrayList<String> getAllStates() throws SQLException   {
 		
 	
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data1","root","Challaraju321@");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data11","root","root");
 			
 			Statement stmt=con.createStatement();
-			String s="SELECT state FROM covid_data1";
+			String s="SELECT state FROM covid_data11";
 			ResultSet rs=stmt.executeQuery(s);
 			ArrayList<String> statesList=new ArrayList<String>();
 			while(rs.next()) {
@@ -36,17 +36,17 @@ public class DAOInterfaceImpl implements DAOInterface{
 			return statesList;
 				
 	
-		
+//			jdbc:mysql://127.0.0.1:3306/?user=root
 		
 	}
 	
 	public ArrayList<String> getDistrictNames(String m) throws  SQLException {
 		
 		
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data1","root","Challaraju321@");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data11","root","root");
 			Statement stmt=con.createStatement();
 //			String s="SELECT district FROM covid_data1 where state=?";
-			PreparedStatement s=con.prepareStatement("SELECT district FROM covid_data1 where state=?");
+			PreparedStatement s=con.prepareStatement("SELECT district FROM covid_data11 where state=?");
 			s.setString(1, m);
 			ResultSet rs=s.executeQuery();
 			ArrayList<String> districtList=new ArrayList<String>();
@@ -61,10 +61,10 @@ public class DAOInterfaceImpl implements DAOInterface{
 	}
 	
 public ArrayList<entity> getDataWithInDate(Date startDate,Date endDate) throws SQLException{
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data1","root","Challaraju321@");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data11","root","root");
 	Statement stmt=con.createStatement();
 //	String s="SELECT district FROM covid_data1 where state=?";
-	PreparedStatement s=con.prepareStatement("SELECT * FROM covid_data1 WHERE date BETWEEN ? AND ? ");
+	PreparedStatement s=con.prepareStatement("SELECT * FROM covid_data11 WHERE date BETWEEN ? AND ? ");
 		
 	s.setDate(1, startDate);
 	s.setDate(2, endDate);
@@ -88,10 +88,10 @@ public ArrayList<entity> getDataWithInDate(Date startDate,Date endDate) throws S
 }
 
 public ArrayList<entity> comparingData(Date startDate,Date endDate,String StateCode) throws SQLException{
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data1","root","Challaraju321@");
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/covid_data11","root","root");
 	Statement stmt=con.createStatement();
 //	String s="SELECT district FROM covid_data1 where state=?";
-	PreparedStatement s=con.prepareStatement("SELECT * FROM covid_data1 WHERE date BETWEEN ? AND ? having state=? ");
+	PreparedStatement s=con.prepareStatement("SELECT * FROM covid_data11 WHERE date BETWEEN ? AND ? having state=? ");
 	s.setDate(1, startDate);
 	s.setDate(2, endDate);
 	s.setString(3, StateCode);
