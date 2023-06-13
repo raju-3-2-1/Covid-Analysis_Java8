@@ -46,14 +46,14 @@ ToIntFunction<String> f=s->Integer.parseInt(s);
 
 static BiPredicate<ArrayList<String>,String> p2=(fl,s)->fl.contains(s);
 
-public void getStatesName() throws DAOException {
+public void getStatesName() throws DAOException, SQLException {
 	ArrayList<String> gs;
-	try {
+//	try {
 		gs = daoInterface.getAllStates();
-	} catch (SQLException e) {
-		
-		throw new DAOException("error occured related to database kindly check");
-	}
+//	} catch (SQLException e) {
+//		
+//		throw new DAOException("error occured related to database kindly check");
+//	}
 		
 		interf i=ServiceClass::getList;
 		ArrayList<String> finalList= i.getList11(gs);
